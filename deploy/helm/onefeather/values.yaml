@@ -1,0 +1,40 @@
+replicaCount: 1
+
+image:
+  web:
+    repository: onefeather-web
+    pullPolicy: IfNotPresent
+    tag: "latest"
+  server:
+    repository: onefeather-server
+    pullPolicy: IfNotPresent
+    tag: "latest"
+
+service:
+  type: ClusterIP
+  webPort: 80
+  serverPort: 3001
+
+ingress:
+  enabled: false
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 64Mi
+  limits:
+    cpu: 50m
+    memory: 128Mi
+
+database:
+  type: postgresql # or mysql
+  postgresql:
+    enabled: true
+    auth:
+      username: onefeather
+      database: onefeather
+  mysql:
+    enabled: false
+    auth:
+      username: onefeather
+      database: onefeather

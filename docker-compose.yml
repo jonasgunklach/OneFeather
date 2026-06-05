@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./web
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: onefeather
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: onefeather
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

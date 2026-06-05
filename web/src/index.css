@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Material 3 Expressive Colors (light) */
+  --m3-bg: #f8fafd;
+  --m3-surface: #ffffff;
+  --m3-surface-container: #edf2fa;
+  --m3-surface-2: #f1f4f9;      /* subtle panels / sidebars */
+  --m3-elevated: #ffffff;       /* menus, dropdowns, cards over content */
+  --m3-row-hover: #f4f7fc;
+  --m3-unread: #eef4ff;
+  --m3-primary: #0b57d0;
+  --m3-primary-container: #c2e7ff;
+  --m3-on-primary-container: #001d35;
+  --m3-text-primary: #1f1f1f;
+  --m3-text-secondary: #444746;
+  --m3-border: #c4c7c5;
+}
+
+:root.dark {
+  /* Material 3 Expressive Colors (dark) */
+  --m3-bg: #17181a;
+  --m3-surface: #202124;
+  --m3-surface-container: #2a2b2e;
+  --m3-surface-2: #26282b;
+  --m3-elevated: #2a2b2e;
+  --m3-row-hover: #26282b;
+  --m3-unread: #1f2a3a;
+  --m3-primary: #1a73e8;
+  --m3-primary-container: #0842a0;
+  --m3-on-primary-container: #d3e3fd;
+  --m3-text-primary: #e3e3e3;
+  --m3-text-secondary: #9aa0a6;
+  --m3-border: #3c4043;
+}
+
+body { transition: background-color 0.2s, color 0.2s; }
+
+/* Form controls follow the theme by default (specific component classes still win). */
+input, select, textarea {
+  background-color: var(--m3-surface);
+  color: var(--m3-text-primary);
+}
+input::placeholder, textarea::placeholder { color: var(--m3-text-secondary); }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--m3-bg);
+  color: var(--m3-text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+/* M3 Components */
+.m3-button-primary {
+  background-color: var(--m3-surface);
+  color: var(--m3-text-primary);
+  border: 1px solid var(--m3-border);
+  border-radius: 16px;
+  padding: 18px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.m3-button-primary:hover {
+  background-color: var(--m3-row-hover);
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+}
+
+.m3-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-radius: 24px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  color: var(--m3-text-secondary);
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.m3-nav-item:hover {
+  background-color: var(--m3-surface-container);
+}
+
+.m3-nav-item.active {
+  background-color: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
+}
+
+.m3-search-bar {
+  background-color: var(--m3-surface-container);
+  border: none;
+  border-radius: 24px;
+  padding: 12px 24px;
+  width: 100%;
+  max-width: 720px;
+  font-size: 16px;
+  color: var(--m3-text-primary);
+  outline: none;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.m3-search-bar:focus {
+  background-color: var(--m3-surface);
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+}
+
+/* Editable document title — looks like text, reveals it's editable on hover/focus. */
+.of-title-input {
+  border: 1px solid transparent;
+  outline: none;
+  cursor: text;
+  transition: background-color .15s, border-color .15s;
+}
+.of-title-input:hover {
+  background-color: var(--m3-surface-container, #f1f3f4) !important;
+}
+.of-title-input:focus {
+  background-color: var(--m3-surface, #fff) !important;
+  border-color: var(--m3-primary, #0b57d0);
+}
+
+.m3-table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--m3-border);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.m3-table-row:hover {
+  background-color: var(--m3-row-hover);
+}
+
+.m3-table-header {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--m3-text-secondary);
+  border-bottom: 1px solid var(--m3-border);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--m3-surface);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+.modal-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--m3-border);
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  outline: none;
+  background: var(--m3-surface);
+  color: var(--m3-text-primary);
+}
+
+.modal-input:focus {
+  border-color: var(--m3-primary);
+}
+
+.m3-action-button {
+  background: var(--m3-primary);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.m3-menu-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--m3-text-primary);
+  transition: background-color 0.2s;
+}
+
+.m3-menu-item:hover {
+  background-color: var(--m3-surface-container);
+}
+
+/* Small pill button + select, used in dense UIs like the org chart, so they match the app. */
+.m3-small-btn {
+  background: var(--m3-surface);
+  color: var(--m3-text-secondary);
+  border: 1px solid var(--m3-border);
+  border-radius: 16px;
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color .15s, border-color .15s;
+}
+.m3-small-btn:hover { background: var(--m3-row-hover); border-color: var(--m3-text-secondary); }
+.m3-small-btn.primary { background: var(--m3-primary); color: #fff; border-color: var(--m3-primary); }
+.m3-small-btn.danger { color: #ea4335; }
+.m3-small-btn.danger:hover { background: rgba(234,67,53,0.1); border-color: #ea4335; }
+
+.m3-select {
+  background: var(--m3-surface);
+  color: var(--m3-text-primary);
+  border: 1px solid var(--m3-border);
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
