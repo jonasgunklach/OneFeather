@@ -22,6 +22,7 @@ By hosting OneFeather on your own Virtual Private Server (VPS), you get:
 
 OneFeather bundles the core applications every team needs to succeed:
 
+- 🔗 **Universal Interlinking (The Core Feature)**: Deeply connect your entire workspace. You can mention and link pages, files, people, and tasks across *all* applications. Everything stays in sync with real-time updates, creating a truly unified ecosystem.
 - 📝 **Real-time Collaborative Documents**: Edit documents simultaneously with your team. Powered by CRDTs, you get a seamless, Google Docs-like experience.
 - 💬 **Team Chat**: Instant messaging for quick communication without leaving your workspace.
 - ✅ **Task Management**: Keep track of projects, assign tasks, and monitor progress.
