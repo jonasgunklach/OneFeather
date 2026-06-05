@@ -6,6 +6,9 @@
 
 ---
 
+> [!CAUTION]
+> **🚨 ALPHA STATUS**: This project is currently in early alpha and requires more testing before production use. Bugs are expected, and features may change. **Contributors are very welcome!**
+
 ## 🌟 The Vision
 
 OneFeather is designed to be a comprehensive, open-source alternative to proprietary ecosystems like Google Workspace or Microsoft 365. Built specifically for **Small and Medium Enterprises (SMEs)** and **Startups**, OneFeather provides all the essential tools your team needs to collaborate effectively—without the vendor lock-in or recurring per-user fees.
